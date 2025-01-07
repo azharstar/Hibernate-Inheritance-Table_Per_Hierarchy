@@ -3,7 +3,10 @@ package com.database.employee_hibernate;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //Specifying Inheritance property and Strategy using single table only as requirement
+//Specifying Inheritance property and Strategy using single table only as requirement
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)  // Hibernate Inheritance: Table Per Hierarchy 
+// @Inheritance(strategy = InheritanceType.JOINED) // Hibernate Inheritance : Table Per Subclass
+// @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)  //Hibernate Inheritance : Table Per Concrete class
 /*----------Specifying First Table Type may be 'int , char or String'---------------*/
 @DiscriminatorColumn(name= "Employee_Type",discriminatorType = DiscriminatorType.STRING) //No use in remaining child classes
 @DiscriminatorValue(value = "Normal_Employee") //Specifying First Table name
